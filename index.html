@@ -1,0 +1,393 @@
+# index.html
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SO-JU Homestay</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f6f2ed;
+      color: #222;
+      overflow-x: hidden;
+    }
+
+    img {
+      width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1300px;
+      margin: auto;
+    }
+
+    header {
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 100;
+      padding: 20px 0;
+      background: rgba(0,0,0,0.25);
+      backdrop-filter: blur(10px);
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      color: white;
+      font-size: 1.6rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+    }
+
+    .book-btn {
+      background: #b77747;
+      color: white;
+      padding: 14px 28px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .book-btn:hover {
+      opacity: 0.9;
+      transform: translateY(-2px);
+    }
+
+    .hero {
+      height: 100vh;
+      background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
+      url('images/pool-main.jpg') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      color: white;
+      text-align: left;
+    }
+
+    .hero-content {
+      max-width: 700px;
+    }
+
+    .hero-subtitle {
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      color: #d6b28e;
+      font-size: 0.9rem;
+    }
+
+    h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 6rem;
+      line-height: 0.95;
+      margin-bottom: 30px;
+      font-weight: 600;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: rgba(255,255,255,0.85);
+      margin-bottom: 40px;
+    }
+
+    .section {
+      padding: 120px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 70px;
+    }
+
+    .section-title span {
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      color: #b77747;
+      font-size: 0.9rem;
+    }
+
+    .section-title h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 4rem;
+      margin-top: 10px;
+      font-weight: 600;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 60px;
+      align-items: center;
+    }
+
+    .about-text p {
+      line-height: 1.9;
+      margin-bottom: 20px;
+      color: #555;
+    }
+
+    .about-image img {
+      border-radius: 30px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.12);
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+    }
+
+    .gallery-grid img {
+      height: 350px;
+      object-fit: cover;
+      border-radius: 24px;
+      transition: 0.4s;
+    }
+
+    .gallery-grid img:hover {
+      transform: scale(1.03);
+    }
+
+    .reviews {
+      background: #efe7df;
+    }
+
+    .review-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+
+    .review-card {
+      background: white;
+      padding: 40px;
+      border-radius: 30px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+    }
+
+    .stars {
+      color: #e1ab4c;
+      margin-bottom: 20px;
+      font-size: 1.2rem;
+    }
+
+    .review-card p {
+      line-height: 1.8;
+      color: #555;
+      margin-bottom: 25px;
+    }
+
+    .reviewer {
+      font-weight: 600;
+    }
+
+    .cta {
+      text-align: center;
+      background: #111;
+      color: white;
+      border-radius: 40px;
+      padding: 100px 40px;
+    }
+
+    .cta h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 4rem;
+      margin-bottom: 20px;
+    }
+
+    .cta p {
+      color: rgba(255,255,255,0.75);
+      max-width: 700px;
+      margin: auto auto 40px;
+      line-height: 1.8;
+    }
+
+    footer {
+      padding: 50px 0;
+      text-align: center;
+      color: #777;
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 4rem;
+      }
+
+      .section-title h2 {
+        font-size: 3rem;
+      }
+
+      .hero {
+        text-align: center;
+      }
+
+      .hero-content {
+        margin: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <nav>
+      <div class="logo">SO-JU HOMESTAY</div>
+
+      <a href="https://www.facebook.com/sojuhomestay/" target="_blank" class="book-btn">
+        Book Now
+      </a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-subtitle">Pampanga, Philippines</div>
+
+      <h1>
+        Where every stay feels warm and unforgettable.
+      </h1>
+
+      <p>
+        A peaceful private villa designed for family bonding, relaxing staycations, celebrations, and meaningful moments together.
+      </p>
+
+      <a href="https://www.facebook.com/sojuhomestay/" target="_blank" class="book-btn">
+        Reserve Your Stay
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-title">
+      <span>About SO-JU</span>
+      <h2>Modern tropical luxury in Bacolor</h2>
+    </div>
+
+    <div class="about-grid">
+      <div class="about-text">
+        <p>
+          SO-JU Homestay is a modern private villa in Pampanga built for memorable family staycations, celebrations, barkada outings, and peaceful overnight escapes.
+        </p>
+
+        <p>
+          Guests consistently love the cleanliness, relaxing atmosphere, and warm hospitality that make every stay feel effortless and comfortable.
+        </p>
+      </div>
+
+      <div class="about-image">
+        <img src="images/balcony-view.jpg" alt="SOJU Balcony">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-title">
+      <span>Gallery</span>
+      <h2>Experience the villa</h2>
+    </div>
+
+    <div class="gallery-grid">
+      <img src="images/pool-main.jpg">
+      <img src="images/dining-area.jpg">
+      <img src="images/kitchen.jpg">
+      <img src="images/bedroom1.jpg">
+      <img src="images/stairs.jpg">
+      <img src="images/bathroom.jpg">
+    </div>
+  </div>
+</section>
+
+<section class="section reviews">
+  <div class="container">
+    <div class="section-title">
+      <span>Guest Love</span>
+      <h2>What guests say about SO-JU</h2>
+    </div>
+
+    <div class="review-grid">
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+
+        <p>
+          “Super linis, wala po kaming naamoy na mabaho & sobrang bait po kayo and yung caretaker.”
+        </p>
+
+        <div class="reviewer">Verified Guest</div>
+      </div>
+
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+
+        <p>
+          “The place is very clean, well-maintained, and highly presentable from the moment you walk in.”
+        </p>
+
+        <div class="reviewer">Peter Howell San Jose</div>
+      </div>
+
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+
+        <p>
+          “Best place for family staycation.”
+        </p>
+
+        <div class="reviewer">Federico Bartolome</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="cta">
+      <h2>Book your next staycation today.</h2>
+
+      <p>
+        Experience a clean, peaceful, and memorable private villa stay in Bacolor, Pampanga.
+      </p>
+
+      <a href="https://www.facebook.com/sojuhomestay/" target="_blank" class="book-btn">
+        Message on Facebook
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    © 2026 SO-JU Homestay • Bacolor, Pampanga
+  </div>
+</footer>
+
+</body>
+</html>
